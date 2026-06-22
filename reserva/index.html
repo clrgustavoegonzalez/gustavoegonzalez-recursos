@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda tu Conversación de Claridad — Gustavo González</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0a0f1e; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+    header { width: 100%; padding: 28px 40px; display: flex; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .logo { font-size: 15px; font-weight: 500; letter-spacing: 0.04em; color: rgba(255,255,255,0.75); text-transform: uppercase; }
+    .hero { text-align: center; padding: 52px 24px 36px; max-width: 620px; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 6px 16px; font-size: 12px; letter-spacing: 0.06em; color: rgba(255,255,255,0.6); text-transform: uppercase; margin-bottom: 24px; }
+    h1 { font-size: clamp(26px, 5vw, 38px); font-weight: 600; line-height: 1.2; margin-bottom: 16px; color: #fff; }
+    h1 span { background: linear-gradient(90deg, #a78bfa, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .subtitle { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.6; max-width: 480px; margin: 0 auto; }
+    .calendly-wrapper { width: 100%; max-width: 900px; padding: 0 16px 60px; }
+    .calendly-inline-widget { border-radius: 16px; overflow: hidden; min-width: 320px; height: 700px; }
+    footer { padding: 24px; text-align: center; font-size: 13px; color: rgba(255,255,255,0.25); border-top: 1px solid rgba(255,255,255,0.06); width: 100%; }
+    @media (max-width: 600px) { .hero { padding: 36px 20px 28px; } .calendly-inline-widget { height: 1100px; } }
+  </style>
+</head>
+<body>
+  <header><span class="logo">Gustavo González · El Cuerpo como Brújula</span></header>
+  <section class="hero">
+    <div class="badge">Agenda gratuita · 30 min</div>
+    <h1>Tu <span>Conversación de Claridad</span></h1>
+    <p class="subtitle">Una llamada para entender qué está pasando en tu cuerpo y cómo recuperar tu ventaja biológica como líder.</p>
+  </section>
+  <div class="calendly-wrapper">
+    <div class="calendly-inline-widget" data-url="https://calendly.com/clrgustavoegonzalez/conversacion-de-claridad-el-cuerpo-como-brujula?hide_gdpr_banner=1&background_color=0f1629&text_color=ffffff&primary_color=a78bfa"></div>
+  </div>
+  <footer>© 2026 Gustavo González · gustavoegonzalez.online</footer>
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
