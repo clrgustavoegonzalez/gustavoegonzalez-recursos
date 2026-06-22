@@ -15,6 +15,12 @@
     h1 { font-size: clamp(26px, 5vw, 38px); font-weight: 600; line-height: 1.2; margin-bottom: 16px; color: #fff; }
     h1 span { background: linear-gradient(90deg, #a78bfa, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .subtitle { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.6; max-width: 480px; margin: 0 auto; }
+    .video-section { width: 100%; max-width: 720px; padding: 0 16px 48px; }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; background: #000; }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 16px; }
+    .divider { width: 100%; max-width: 720px; padding: 0 16px 36px; text-align: center; }
+    .divider p { font-size: 15px; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; }
+    .divider::before { content: ''; display: block; width: 100%; height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 20px; }
     .calendly-wrapper { width: 100%; max-width: 900px; padding: 0 16px 60px; }
     .calendly-inline-widget { border-radius: 16px; overflow: hidden; min-width: 320px; height: 700px; }
     footer { padding: 24px; text-align: center; font-size: 13px; color: rgba(255,255,255,0.25); border-top: 1px solid rgba(255,255,255,0.06); width: 100%; }
@@ -26,8 +32,14 @@
   <section class="hero">
     <div class="badge">Agenda gratuita · 30 min</div>
     <h1>Tu <span>Conversación de Claridad</span></h1>
-    <p class="subtitle">Una llamada para entender qué está pasando en tu cuerpo y cómo recuperar tu ventaja biológica como líder.</p>
+    <p class="subtitle">Mirá este video antes de agendar — te explico exactamente qué vamos a hacer juntos en la llamada.</p>
   </section>
+  <div class="video-section">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/pA7_16kbyGI?rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="divider"><p>Cuando estés listo, agendá tu lugar abajo</p></div>
   <div class="calendly-wrapper">
     <div class="calendly-inline-widget" data-url="https://calendly.com/clrgustavoegonzalez/conversacion-de-claridad-el-cuerpo-como-brujula?hide_gdpr_banner=1&background_color=0f1629&text_color=ffffff&primary_color=a78bfa"></div>
   </div>
