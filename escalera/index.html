@@ -6,7 +6,6 @@
 <title>El Mapa de La Escalera — Gustavo E. González</title>
 <meta name="description" content="Tu sistema nervioso te está diciendo en qué escalón está parado. Un mapa de 3 minutos para reconocerte.">
 
-<!-- Open Graph para que el link se vea bien si se comparte -->
 <meta property="og:title" content="El Mapa de La Escalera">
 <meta property="og:description" content="Tu sistema nervioso te está diciendo en qué escalón está parado.">
 <meta property="og:type" content="article">
@@ -26,15 +25,8 @@
     --rule: rgba(244, 241, 234, 0.14);
   }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
 
   body {
     background: var(--navy);
@@ -57,21 +49,12 @@
     }
   }
 
-  a {
-    color: var(--orange);
-  }
+  a { color: var(--orange); }
 
-  .wrap {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 0 28px;
-  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 0 28px; }
 
-  /* ===== HEADER MÍNIMO ===== */
-  header {
-    padding: 56px 0 0;
-  }
-
+  /* ===== HEADER ===== */
+  header { padding: 56px 0 0; }
   .brand {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 13px;
@@ -81,11 +64,8 @@
     text-align: center;
   }
 
-  /* ===== ESCENA (Bloque 1 + 2) ===== */
-  .scene {
-    padding: 64px 0 48px;
-  }
-
+  /* ===== ESCENA ===== */
+  .scene { padding: 64px 0 48px; }
   .scene .time {
     font-family: 'Fraunces', serif;
     font-weight: 300;
@@ -94,7 +74,6 @@
     color: var(--orange);
     margin-bottom: 28px;
   }
-
   .scene p {
     font-family: 'Fraunces', serif;
     font-weight: 400;
@@ -104,31 +83,135 @@
     margin-bottom: 22px;
     max-width: 560px;
   }
-
   .scene .name-block {
     margin-top: 36px;
     padding-top: 32px;
     border-top: 1px solid var(--rule);
   }
-
   .scene .name-block p {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 17px;
     color: var(--cream-dim);
     margin-bottom: 6px;
   }
-
   .scene .name-block p:last-child {
     color: var(--cream);
     font-weight: 500;
   }
 
-  /* ===== EL MAPA (Bloque 3) ===== */
+  /* ===== DIAGRAMA ANIMADO ===== */
+  .escalera-diagram {
+    padding: 56px 0 48px;
+  }
+
+  .diagram-label {
+    text-align: center;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 32px;
+  }
+
+  .diag-step {
+    border-radius: 3px;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .diag-step.diag-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .diag-arriba {
+    background: rgba(217, 131, 56, 0.1);
+    border-left: 3px solid var(--orange);
+  }
+  .diag-medio {
+    margin: 0 40px;
+    background: rgba(44, 63, 102, 0.7);
+    border-left: 3px solid #7a9ab8;
+  }
+  .diag-abajo {
+    margin: 0 80px;
+    background: rgba(17, 25, 46, 0.95);
+    border-left: 3px solid #2a3d5e;
+  }
+
+  .diag-left .diag-mark {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    margin-bottom: 6px;
+  }
+  .diag-arriba .diag-mark { color: var(--orange); }
+  .diag-medio .diag-mark  { color: #a8c0d6; }
+  .diag-abajo .diag-mark  { color: #3a4f6a; }
+
+  .diag-left .diag-title {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 3px;
+  }
+  .diag-abajo .diag-title { color: #6a7f98; }
+
+  .diag-left .diag-sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 13px;
+  }
+  .diag-arriba .diag-sub { color: var(--orange); }
+  .diag-medio .diag-sub  { color: #a8c0d6; }
+  .diag-abajo .diag-sub  { color: #3a4f6a; }
+
+  .diag-right {
+    text-align: right;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    line-height: 1.9;
+    flex-shrink: 0;
+  }
+  .diag-arriba .diag-right { color: var(--orange); }
+  .diag-medio .diag-right  { color: #a8c0d6; }
+
+  .diag-arrow {
+    text-align: center;
+    color: #2a3d5e;
+    font-size: 16px;
+    padding: 4px 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .diag-arrow.diag-visible { opacity: 1; }
+
+  .diag-footer {
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #2a3d5e;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+  }
+  .diag-footer.diag-visible { opacity: 1; }
+
+  /* ===== MAPA DETALLADO ===== */
   .map-intro {
     padding: 8px 0 8px;
     text-align: center;
   }
-
   .map-intro .label {
     font-size: 12px;
     letter-spacing: 0.18em;
@@ -136,14 +219,8 @@
     color: var(--cream-dim);
   }
 
-  .step {
-    padding: 52px 0;
-    border-top: 1px solid var(--rule);
-  }
-
-  .step:last-of-type {
-    border-bottom: 1px solid var(--rule);
-  }
+  .step { padding: 52px 0; border-top: 1px solid var(--rule); }
+  .step:last-of-type { border-bottom: 1px solid var(--rule); }
 
   .step-mark {
     font-size: 13px;
@@ -151,14 +228,12 @@
     color: var(--orange);
     margin-bottom: 6px;
   }
-
   .step-title {
     font-family: 'Fraunces', serif;
     font-weight: 600;
     font-size: 28px;
     margin-bottom: 6px;
   }
-
   .step-sub {
     font-family: 'Fraunces', serif;
     font-style: italic;
@@ -167,11 +242,7 @@
     color: var(--cream-dim);
     margin-bottom: 24px;
   }
-
-  .step-signals {
-    list-style: none;
-  }
-
+  .step-signals { list-style: none; }
   .step-signals li {
     font-size: 17px;
     line-height: 1.8;
@@ -180,17 +251,41 @@
     opacity: 0.92;
   }
 
-  /* leve diferenciación tonal entre escalones — sutil, no decorativa */
   .step.up { padding-bottom: 56px; }
-  .step.mid { }
   .step.down { padding-top: 56px; }
 
-  /* ===== APERTURA (Bloque 4) ===== */
-  .closing {
-    padding: 64px 0 40px;
+  /* ===== FOTO ===== */
+  .author-photo {
+    padding: 48px 0 0;
     text-align: center;
   }
+  .author-photo img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 50%;
+    border: 3px solid var(--orange);
+    display: block;
+    margin: 0 auto 16px;
+  }
+  .author-photo .author-name {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+  }
+  .author-photo .author-role {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--cream-dim);
+    margin-top: 4px;
+  }
 
+  /* ===== CIERRE ===== */
+  .closing { padding: 40px 0 40px; text-align: center; }
   .closing p {
     font-family: 'Fraunces', serif;
     font-style: italic;
@@ -201,7 +296,6 @@
     max-width: 480px;
     margin: 0 auto 18px;
   }
-
   .closing .signature {
     margin-top: 40px;
     font-family: 'Source Sans 3', sans-serif;
@@ -218,17 +312,8 @@
     padding: 52px 28px;
     text-align: center;
   }
-
-  .cta-block .wrap {
-    max-width: 480px;
-  }
-
-  .cta-block p {
-    color: var(--navy);
-    font-size: 17px;
-    margin-bottom: 22px;
-  }
-
+  .cta-block .wrap { max-width: 480px; }
+  .cta-block p { color: var(--navy); font-size: 17px; margin-bottom: 22px; }
   .cta-button {
     display: inline-block;
     background: var(--navy);
@@ -241,11 +326,7 @@
     border-radius: 2px;
     transition: opacity 0.2s ease;
   }
-
-  .cta-button:hover {
-    opacity: 0.85;
-  }
-
+  .cta-button:hover { opacity: 0.85; }
   .cta-block .handle {
     margin-top: 18px;
     color: var(--navy);
@@ -254,15 +335,8 @@
   }
 
   /* ===== FOOTER ===== */
-  footer {
-    padding: 36px 0 56px;
-    text-align: center;
-  }
-
-  footer p {
-    font-size: 13px;
-    color: var(--cream-dim);
-  }
+  footer { padding: 36px 0 56px; text-align: center; }
+  footer p { font-size: 13px; color: var(--cream-dim); }
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 480px) {
@@ -271,9 +345,11 @@
     .step-title { font-size: 24px; }
     .step { padding: 40px 0; }
     .closing p { font-size: 18px; }
+    .diag-medio { margin: 0 20px; }
+    .diag-abajo { margin: 0 40px; }
+    .diag-right { display: none; }
   }
 
-  /* Foco visible para accesibilidad de teclado */
   a:focus-visible, .cta-button:focus-visible {
     outline: 2px solid var(--cream);
     outline-offset: 3px;
@@ -294,10 +370,7 @@
   <section class="scene">
     <div class="wrap">
       <p class="time">Son las 11 de la noche.</p>
-
       <p>El cuerpo está en la cama. La cabeza sigue en la reunión de mañana, en el problema que no se resolvió, en la persona que dijo algo que todavía te está dando vueltas.</p>
-
-      <!-- BLOQUE 2 — EL NOMBRE -->
       <div class="name-block">
         <p>Eso no es cansancio.</p>
         <p>Es una señal.</p>
@@ -306,7 +379,56 @@
     </div>
   </section>
 
-  <!-- BLOQUE 3 — EL MAPA -->
+  <!-- DIAGRAMA ANIMADO — La Escalera Interna -->
+  <section class="escalera-diagram fade-in">
+    <div class="wrap">
+      <p class="diagram-label">La Escalera Interna · Sistema Nervioso Autónomo · Teoría Polivagal</p>
+
+      <div class="diag-step diag-arriba" id="d1">
+        <div class="diag-left">
+          <p class="diag-mark">▲ ARRIBA — VAGAL VENTRAL</p>
+          <p class="diag-title">Todo fluye.</p>
+          <p class="diag-sub">Tu ventaja biológica.</p>
+        </div>
+        <div class="diag-right">
+          Energía · Creatividad<br>
+          Asertividad · Claridad<br>
+          Conexión · Curiosidad<br>
+          Presencia · Apertura
+        </div>
+      </div>
+
+      <div class="diag-arrow" id="da1">↓</div>
+
+      <div class="diag-step diag-medio" id="d2">
+        <div class="diag-left">
+          <p class="diag-mark">● EN EL MEDIO — SIMPÁTICO</p>
+          <p class="diag-title">El acelerador pisado.</p>
+          <p class="diag-sub">El freno invisible.</p>
+        </div>
+        <div class="diag-right">
+          Alerta · Amenaza<br>
+          Ansiedad · Angustia<br>
+          Insomnio · Amnesia<br>
+          Lucha o huida
+        </div>
+      </div>
+
+      <div class="diag-arrow" id="da2">↓</div>
+
+      <div class="diag-step diag-abajo" id="d3">
+        <div class="diag-left">
+          <p class="diag-mark">▼ ABAJO — VAGAL DORSAL</p>
+          <p class="diag-title">Cuerpo aquí. Mente ausente.</p>
+          <p class="diag-sub">Sin energía disponible.</p>
+        </div>
+      </div>
+
+      <p class="diag-footer" id="dfooter">La mente miente. El cuerpo no. — Gustavo E. González</p>
+    </div>
+  </section>
+
+  <!-- BLOQUE 3 — EL MAPA DETALLADO -->
   <section class="map">
     <div class="wrap">
 
@@ -352,6 +474,16 @@
     </div>
   </section>
 
+  <!-- FOTO -->
+  <section class="author-photo fade-in">
+    <div class="wrap">
+      <img src="./b60b3475-bf0d-4ef8-b8fc-1361bd5ad21e.png" alt="Gustavo E. González" />
+      <p class="author-name">Gustavo E. González</p>
+      <p class="author-role">Obstetra · Técnico Superior en Desarrollo Humano · Neurosicoeducador</p>
+      <p class="author-role">30 años en el sistema hospitalario público</p>
+    </div>
+  </section>
+
   <!-- BLOQUE 4 — LA APERTURA -->
   <section class="closing fade-in">
     <div class="wrap">
@@ -381,13 +513,17 @@
 </footer>
 
 <script>
-  // Reveal sutil al hacer scroll — respeta prefers-reduced-motion vía CSS
+  // Fade-in al hacer scroll (secciones generales)
   if ('IntersectionObserver' in window) {
     const els = document.querySelectorAll('.fade-in');
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('visible');
+          // Si es la sección del diagrama, disparar animación secuencial
+          if (e.target.classList.contains('escalera-diagram')) {
+            animateDiagram();
+          }
           obs.unobserve(e.target);
         }
       });
@@ -395,6 +531,25 @@
     els.forEach(el => obs.observe(el));
   } else {
     document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+    animateDiagram();
+  }
+
+  // Animación secuencial de los peldaños del diagrama
+  function animateDiagram() {
+    const seq = [
+      { el: 'd1',      delay: 200 },
+      { el: 'da1',     delay: 700 },
+      { el: 'd2',      delay: 900 },
+      { el: 'da2',     delay: 1400 },
+      { el: 'd3',      delay: 1600 },
+      { el: 'dfooter', delay: 2100 },
+    ];
+    seq.forEach(({ el, delay }) => {
+      setTimeout(() => {
+        const node = document.getElementById(el);
+        if (node) node.classList.add('diag-visible');
+      }, delay);
+    });
   }
 </script>
 
